@@ -1,4 +1,4 @@
-# Code for Machine Learning for Hackers #
+# Code for Machine Learning for ~~Hackers~~ Lawyers #
 
 This repository contains all of the code examples for [Machine Learning for Hackers](http://shop.oreilly.com/product/0636920018483.do) (2012).  The code may not appear exactly as it does in the text, as additional comments and modifications may have been added since publication.
 
