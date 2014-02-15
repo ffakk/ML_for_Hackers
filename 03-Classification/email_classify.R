@@ -62,7 +62,7 @@ get.msg <- function(path)
   con <- file(path, open = "rt", encoding = "native.enc")
   text <- readLines(con)
   # The message always begins after the first full line break
-  msg <- text[seq(which(text == "/")[1] + 1, length(text), 1)]
+  msg <- text[seq(which(text == "")[1] + 1, length(text), 1)]
   close(con)
   return(paste(msg, collapse = "\n"))
 }
