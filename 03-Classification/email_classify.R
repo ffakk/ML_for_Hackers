@@ -136,8 +136,7 @@ classify.email <- function(path, training.df, prior = 0.5, c = 1e-6)
 # Get all the SPAM-y email into a single vector
 spam.docs <- dir(spam.path)
 spam.docs <- spam.docs[which(spam.docs != "cmds")]
-all.spam <- sapply(spam.docs,
-                   function(p) get.msg(file.path(spam.path, p)))
+all.spam <- sapply(spam.docs, function(p) get.msg(paste(spam.path,p,sep="/")))
 
 # Create a DocumentTermMatrix from that vector
 spam.tdm <- get.tdm(all.spam)
