@@ -59,10 +59,10 @@ ggsave(plot = ex1,
 # words as features
 get.msg <- function(path)
 {
-  con <- file(path, open = "rt", encoding = "native.enc")
+  con <- file(path, open = "rb", encoding = "latin1")
   text <- readLines(con)
   # The message always begins after the first full line break
-  msg <- text[seq(which(text == "")[1] + 1, length(text), 1)]
+   msg <- text[seq(which(text == "")[1] + 1, length(text), 1)]
   close(con)
   return(paste(msg, collapse = "\n"))
 }
@@ -136,7 +136,8 @@ classify.email <- function(path, training.df, prior = 0.5, c = 1e-6)
 # Get all the SPAM-y email into a single vector
 spam.docs <- dir(spam.path)
 spam.docs <- spam.docs[which(spam.docs != "cmds")]
-all.spam <- sapply(spam.docs, function(p) get.msg(paste(spam.path,p,sep="/")))
+all.spam <- sapply(spam.docs,
+                   function(p) get.msg(file.path(spam.path, p)))
 
 # Create a DocumentTermMatrix from that vector
 spam.tdm <- get.tdm(all.spam)
